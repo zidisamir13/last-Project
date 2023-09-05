@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Champs de Saisie</title>
+<style>
+  /* Center the form */
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+  }
+
+  form {
+    width: 80%; /* Adjust this width as needed */
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"] {
+    width: 50%; /* Reduced width to 50% */
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  table {
+    width: 100%; /* Table takes full width of the form */
+    border-collapse: collapse; /* Merge borders for a cleaner look */
+  }
+
+  .input {
+    width: 75%; /* Each cell takes 25% of the table's width */
+
+    padding: 1px; /* Adjust cell padding for spacing */
+    text-align: left; /* Center content within cells */
+  }
+  .label {
+    width: 15%; /* Each cell takes 25% of the table's width */
+
+    padding: 1px; /* Adjust cell padding for spacing */
+    text-align: left; /* Center content within cells */
+  }
+
+button {
+
+    font-family: Arial, sans-serif;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px; /* Increased padding for a more prominent button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #82CEF9;
+  
+
+  }
+
+
+
+  button:hover {
+    background-color: #45a049;
+  }
+
+.submit-button{
+    
+  font-family: Arial, sans-serif,bold;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px; /* Increased padding for a more prominent button */
+  color: #82CEF9;
+  }
+</style>
+<script>
+  function toggleInput(inputId) {
+    var inputElement = document.getElementById(inputId);
+    var buttonElement = document.querySelector(`[data-input="${inputId}"]`);
+
+    inputElement.disabled = !inputElement.disabled;
+
+    if (inputElement.disabled) {
+      buttonElement.style.backgroundColor = '#f44336'; // Change to red when disabled
+    } else {
+      buttonElement.style.backgroundColor = '#4caf50'; // Change to green when enabled
+    }
+  }
+</script>
+</head>
+<body>
+
+  <form method="post" name='adresse' action ='.'>
+    <table>
+      <tr>
+        <td class="label"><label for="pays">Pays:</label></td>
+        <td class="input"><input type="text" id="pays" name="pays" required><br><br></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="province">Province:</label></td>
+        <td class="input"><input type="text" id="province" name="province" required><br><br></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="ville">Ville:</label></td>
+        <td class="input"><input type="text" id="ville" name="ville" required><br><br></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="saisie1">Code Postal</label></td>
+        <td class="input"><input type="text" id="saisie1" name="saisie1" disabled></td>
+        <td><button type="button" data-input="saisie1" onclick="toggleInput('saisie1')">Activer/Désactiver</button><br><br></td>
+      </tr>
+      <tr>
+        <td class="label"><label for="saisie2">Nom de rue</label></td>
+        <td  class="input"><input type="text" id="saisie2" name="saisie2" disabled></td>
+        <td><button type="button" data-input="saisie2" onclick="toggleInput('saisie2')">Activer/Désactiver</button><br><br></td>
+      </tr>
+      <tr>
+        <td class="label" ><label for="saisie3">Numero de rue</label></td>
+        <td class="input" ><input type="text" id="saisie3" name="saisie3" disabled></td>
+        <td><button type="button" data-input="saisie3" onclick="toggleInput('saisie3')">Activer/Désactiver</button><br><br></td>
+      </tr>
+      <tr>
+        <td></td>
+        
+        <td colspan="3" class='submit'><input type="submit" value="Soumettre" class="submit-button"></td>
+        <td></td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+</html>
+
+
+
+
